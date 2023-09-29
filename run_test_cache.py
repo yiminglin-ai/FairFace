@@ -1,27 +1,23 @@
 import logging
-import warnings
-
-import cv2
-from tqdm import tqdm
-
-warnings.filterwarnings("ignore")
 import os
 import os.path
 
-import dlib
+import cv2
 import gdown
+import mxnet as mx
 import numpy as np
 import pandas as pd
 import torch
 import torch.nn as nn
 import torchvision
-from torchvision import transforms
 from torch.utils.data import Dataset
-import mxnet as mx
+from torchvision import transforms
+from tqdm import tqdm
 
 # Define the Google Drive URL of the file you want to download
 fair_7_url = "https://drive.google.com/uc?id=113QMzQzkBDmYMs9LwzvD-jxEZdBQ5J4X"
 fair_4_url = "https://drive.google.com/uc?id=1kXdAsqT8YiNYIMm8p5vQUvNFwhBbT4vQ"
+
 fair_7_path = "res34_fair_align_multi_7_20190809.pt"
 fair_4_path = "res34_fair_align_multi_4_20190809.pt"
 
@@ -263,4 +259,4 @@ def ensure_dir(directory):
 if __name__ == "__main__":
     root_dir = "/home/ubuntu/data/multilabel_5_1_cache_2/test/"
     # Please change test_outputs.csv to actual name of output csv.
-    predidct_age_gender_race("test_outputs.csv", root_dir)
+    predidct_age_gender_race("../results/fairface_outputs.csv", root_dir)
